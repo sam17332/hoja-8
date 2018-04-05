@@ -5,6 +5,7 @@ import java.util.Vector;
  * @since 04 abril 2018
  * Clase Vector Heap
  * Basado de "http://www.cs.williams.edu/JavaStructures/doc/structure5/index.html?structure5/VectorHeap.html"
+ * Basado de "https://instructure-uploads.s3.amazonaws.com/account_111400000000000001/attachments/10550/VectorHeap.java?response-content-disposition=inline%3B%20filename%3D"VectorHeap.java"%3B%20filename%2A%3DUTF-8%27%27VectorHeap.java&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJFNFXH2V2O7RPCAA%2F20180405%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180405T040655Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=6cfd36fae20a7edc3961033a43e16ff834318826ded49e274cf355151d1e7ff2"
  */
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 	/*atributo que guarda los datos almacenados dentro de un vector*/
@@ -14,6 +15,17 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 	public VectorHeap(){
 		/*iniciliazamos el atributo*/
 		data = new Vector<E>();
+	}
+	
+	public VectorHeap(Vector<E> v)
+	// post: constructs a new priority queue from an unordered vector
+	{
+		int i;
+		data = new Vector<E>(v.size()); // we know ultimate size
+		for (i = 0; i < v.size(); i++)
+		{ // add elements to heap
+			add(v.get(i));
+		}
 	}
 	
 	/**
@@ -80,7 +92,8 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 
 	@Override
 	public void add(E value) {
-		// TODO Auto-generated method stub
+		data.add(value);
+		precolateUp(data.size()-1);
 		
 	}
 
@@ -92,14 +105,33 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return data.size();
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		data.removeAllElements();
+	}
+	
+	private void precolateUp(int leaf){
+		int parent = parent(leaf); /*find index of parent*/
+		E value = data.get(leaf); /*get leaf value (just added)*/
+		/*while leaf value is smaller than its parent*/
+		while (leaf > 0 && (value.compareTo(data.get(parent))<0)) {
+			/*move parent value downwards*/
+			data.set(leaf, data.get(parent));
+			/*update candidate index*/
+			leaf = parent;
+			/*move up one level*/
+			parent = parent(leaf);
+		}
+		/*found the right index, set the value*/
+		data.set(leaf, value);
+	}
+	
+	/*get the index of a parent node*/
+	private int parent(int i) {
+		return (i-1)/2;
 	}
 
 }
