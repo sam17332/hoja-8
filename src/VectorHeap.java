@@ -2,6 +2,7 @@ import java.util.Vector;
 
 /**
  * @author Marcos Gutierrez
+ * @author Rodrigo Samayoa
  * @since 04 abril 2018
  * Clase Vector Heap
  * Basado de "http://www.cs.williams.edu/JavaStructures/doc/structure5/index.html?structure5/VectorHeap.html"

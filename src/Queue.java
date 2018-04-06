@@ -1,5 +1,6 @@
 /**
  * @author Marcos Gutierrez
+ * @author Rodrigo Samayoa
  * @since 04 abril 2018
  * Clase PriorityQueue
  * @author D. Bailey (Java Structures), sacado del libro brindado por el catedratico.
