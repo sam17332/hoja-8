@@ -53,7 +53,15 @@
 	@Override
 	public int compareTo(Pacientes o) 
 	{
-		return this.codigo.compareTo(o.getCodigo());
+		if(this.codigo.charAt(0) > o.getCodigo().charAt(0))
+		{
+			return 1;
+		}
+		if(this.codigo.charAt(0) < o.getCodigo().charAt(0))
+		{
+			return -1;
+		}
+		return 0;
 	}
 	
 	public String toString()

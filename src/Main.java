@@ -35,6 +35,7 @@ public class Main
           	   	 String nombre = linea2[0];
           	     String sintoma = linea2[1];
           	     String codigo = linea2[2];
+          	     //System.out.println(codigo);
           	     /*agregamos los datos al vector*/
           	     vector.add(new Pacientes(nombre,sintoma,codigo));
              }

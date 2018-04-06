@@ -55,7 +55,7 @@ public class VectorHeap<E extends Comparable<E>> implements Queue<E> {
 		/*Atributo para comparar el tama�o del "root"*/
 		int heapS = data.size();
 		E valor = data.get(root);
-		while (root > heapS) {
+		while (root < heapS) {
 			int childpos = left(root);
 			if( childpos < heapS) {
 				if(right(root) < heapS && data.get(childpos +1).compareTo(data.get(childpos))< 0) {
@@ -82,7 +82,7 @@ public class VectorHeap<E extends Comparable<E>> implements Queue<E> {
 	
 	/*get the index of a right child*/
 	private int right(int i) {
-		return 2 * i + 2;
+		return 2 * (i + 2);
 	}
 	
 	/*get the index of a left child*/
