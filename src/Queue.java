@@ -4,7 +4,7 @@
  * Clase PriorityQueue
  * @author D. Bailey (Java Structures), sacado del libro brindado por el catedratico.
  */
-public interface PriorityQueue<E extends Comparable<E>> {
+public interface Queue<E extends Comparable<E>> {
 	public E getFirst();
 	// pre: !isEmpty()
 	// post: returns the minimum value in priority queue

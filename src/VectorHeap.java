@@ -6,7 +6,7 @@ import java.util.Vector;
  * Clase Vector Heap
  * Basado de "http://www.cs.williams.edu/JavaStructures/doc/structure5/index.html?structure5/VectorHeap.html"
  */
-public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
+public class VectorHeap<E extends Comparable<E>> implements Queue<E> {
 	/*atributo que guarda los datos almacenados dentro de un vector*/
 	protected Vector<E> data; 
 	
@@ -51,7 +51,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 	 * @param root, es la raiz del arbol
 	 */
 	private void pushDownRoot(int root) {
-		/*Atributo para comparar el tamaño del "root"*/
+		/*Atributo para comparar el tamaï¿½o del "root"*/
 		int heapS = data.size();
 		E valor = data.get(root);
 		while (root > heapS) {
