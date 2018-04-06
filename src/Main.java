@@ -1,8 +1,11 @@
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * @author Rodrigo Samayoa
@@ -15,17 +18,30 @@ public class Main
 {
 	public static void main(String[] args)
     {
-		 Pacientes m = new Pacientes();
-		 File texto = new File(System.getProperty("user.dir")+"\\"+"Pacientes.txt");
+		 //Pacientes m = new Pacientes(nombre, sintoma, codigo//);
+		 /*Relacionamos las clases con un vector*/
+		 VectorHeap<Pacientes> vector  = new VectorHeap<Pacientes>();
+		 
          try{
-               FileReader leer = new FileReader(texto);
-               BufferedReader buff = new BufferedReader(leer);
-               String linea;
-               while((linea = buff.readLine()) != null)
-               {
-               }
+        	 /*Abrimos el archivo*/
+        	 File texto = new File(System.getProperty("user.dir")+"\\"+"Pacientes .txt");
+        	 /*Lectura de archivo*/
+        	 FileReader leer = new FileReader(texto);
+        	 /*Lectura del Archivo*/
+             BufferedReader buff = new BufferedReader(leer);
+             String linea;
+             while((linea = buff.readLine()) != null) {
+            	 String[] linea2 = linea.split(",");
+          	   	 String nombre = linea2[0];
+          	     String sintoma = linea2[1];
+          	     String codigo = linea2[2];
+          	     /*agregamos los datos al vector*/
+          	     vector.add(new Pacientes(nombre,sintoma,codigo));
+             }
+             /*cerramos el codigo*/
+             buff.close(); 
          }catch(IOException e){
-     
+        	 System.out.println("Ocurrio un error " + e.getMessage());
          }
 	
     }

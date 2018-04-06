@@ -117,7 +117,7 @@ public class VectorHeap<E extends Comparable<E>> implements Queue<E> {
 		int parent = parent(leaf); /*find index of parent*/
 		E value = data.get(leaf); /*get leaf value (just added)*/
 		/*while leaf value is smaller than its parent*/
-		while (leaf > 0 && (value.compareTo(data.get(parent))<0)) {
+		while (leaf > 0 && (value.compareTo(data.get(parent))< 0)) {
 			/*move parent value downwards*/
 			data.set(leaf, data.get(parent));
 			/*update candidate index*/

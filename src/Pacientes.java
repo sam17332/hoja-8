@@ -13,9 +13,11 @@
 	public String sintoma;
 	public String codigo;
 	
-	public Pacientes() 
+	public Pacientes(String nombre, String sintoma,String codigo) 
 	{
-		
+		this.nombre = nombre;
+		this.sintoma = sintoma;
+		this.codigo = codigo;
 	}
 	
 	public void setNombre()
@@ -51,19 +53,7 @@
 	@Override
 	public int compareTo(Pacientes o) 
 	{
-		// TODO Auto-generated method stub
-		if(this.codigo.compareTo(o.getCodigo()) > 0)
-		{
-			return 1;
-		}
-		if(this.codigo.compareTo(o.getCodigo()) < 0)
-		{
-			return -1;
-		}
-		else
-		{
-			return 0;
-		}
+		return this.codigo.compareTo(o.getCodigo());
 	}
 	
 	public String toString()
