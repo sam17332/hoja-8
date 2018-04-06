@@ -6,6 +6,7 @@ import java.io.IOException;
 
 /**
  * @author Rodrigo Samayoa
+ * @author Marcos Gutierrez
  * @since 05 abril 2018
  * Main
  */
