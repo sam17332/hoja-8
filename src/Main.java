@@ -31,7 +31,7 @@ public class Main
              BufferedReader buff = new BufferedReader(leer);
              String linea;
              while((linea = buff.readLine()) != null) {
-            	 String[] linea2 = linea.split(",");
+            	 String[] linea2 = linea.split(", ");
           	   	 String nombre = linea2[0];
           	     String sintoma = linea2[1];
           	     String codigo = linea2[2];
@@ -41,8 +41,13 @@ public class Main
              /*cerramos el codigo*/
              buff.close(); 
          }catch(IOException e){
+        	 /*manda un error*/
         	 System.out.println("Ocurrio un error " + e.getMessage());
          }
-	
+         /*imprimimos los datos*/
+         System.out.println("El orden para atender el paciente es: " + "\n" + "NOMBRE" + "\n" + "SINTOMA" + "\n" + "CODIGO");
+         while(!vector.isEmpty()) {
+        	 System.out.println(vector.remove().toString());
+         }
     }
 }
